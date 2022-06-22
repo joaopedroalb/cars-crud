@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-type NavbarProps = {
+
+type ComponentProps = {
     isDark:boolean
 }
 
-export const NavbarContainer = styled.div<NavbarProps>`
+export const NavbarContainer = styled.div<ComponentProps>`
     min-height: 100vh;
-    width: 100px;
+    width: 75px;
     max-width: 30%;
     padding: 1.5rem 1rem 2.5rem 1rem;
 
@@ -15,8 +16,8 @@ export const NavbarContainer = styled.div<NavbarProps>`
     align-items: center;
     justify-content: space-between;
 
-    background-color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
-    color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
+    background-color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
+    color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
 
     .linksContainer{
         display: flex;
@@ -35,9 +36,12 @@ export const LayoutPageBG = styled.div`
     display: flex;
 `
 
-export const PageContainer = styled.div`
+export const PageContainer = styled.div<ComponentProps>`
     height: 100vh;
     width: 100%;
     overflow-y: auto;
     padding: 1rem;
+
+    background-color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
+    color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
 `
