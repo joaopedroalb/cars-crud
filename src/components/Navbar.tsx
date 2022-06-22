@@ -6,10 +6,10 @@ export default function Navbar() {
   return (
     <NavbarContainer isDark={true}>
         <nav className='linksContainer'>
-            <Link to="/">
+            <Link to="/" className='linkItem'>
                 Home
             </Link>
-            <Link to="/create">
+            <Link to="/create" className='linkItem'>
                 Create
             </Link>
         </nav>

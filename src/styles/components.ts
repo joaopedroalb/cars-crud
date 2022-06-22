@@ -24,6 +24,13 @@ export const NavbarContainer = styled.div<ComponentProps>`
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+
+        .linkItem{
+            transition: 400ms;
+            &:hover{
+                color: var(--green);
+            }
+        }
     }
 
 
