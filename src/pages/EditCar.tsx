@@ -1,7 +1,10 @@
 import React from 'react'
+import { PageContainer } from '../styles/components'
 
 export default function EditCar() {
   return (
-    <div>Edit Car</div>
+    <PageContainer>
+      Edit Car
+    </PageContainer>
   )
 }

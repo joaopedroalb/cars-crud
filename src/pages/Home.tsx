@@ -1,9 +1,10 @@
 import React from 'react'
+import { PageContainer } from '../styles/components'
 
 export default function Home() {
   return (
-    <div>
+    <PageContainer>
         Cars Home
-    </div>
+    </PageContainer>
   )
 }

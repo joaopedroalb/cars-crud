@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import LayoutPage from "./components/LayoutPage"
 import CreateCar from "./pages/CreateCar"
 import EditCar from "./pages/EditCar"
 import Home from "./pages/Home"
@@ -7,7 +8,7 @@ import Home from "./pages/Home"
 function App() {
 
   return (
-    <div>
+    <LayoutPage>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -15,7 +16,7 @@ function App() {
           <Route path="/edit/*" element={<EditCar/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
+    </LayoutPage>
   )
 }
 
