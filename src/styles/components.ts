@@ -52,3 +52,30 @@ export const PageContainer = styled.div<ComponentProps>`
     background-color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
     color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
 `
+
+export const Card = styled.div<ComponentProps>`
+    width: 350px;
+    height: 325px;
+    background-color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
+    color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .cardInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+        padding: 1rem;
+    }
+`
