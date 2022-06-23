@@ -21,7 +21,7 @@ export default function CardCar({car}:CardProps) {
 
   return (
     <Card isDark={isDark}>
-      <img src={img ? img : DEFAULT_IMAGE} onError={onError}/>
+      <img src={img ? img : DEFAULT_IMAGE} onError={onError} className="notSelected"/>
       <div className="cardInfo">
         <p className="iconsSection">
             <AiFillDelete size={20} className="icon" color="var(--red)" onClick={()=>deleteById(car.id)}/>
