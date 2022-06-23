@@ -8,7 +8,7 @@ export const CardContainer = styled.section`
     width: 100%;
     display:grid;
     place-items: center;
-    gap: 2rem 0rem;
+    gap: 1.20rem 0rem;
     grid-template-columns : repeat(3,1fr);
 
     @media (max-width: 1254px) {

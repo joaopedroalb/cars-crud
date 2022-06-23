@@ -55,7 +55,7 @@ export const PageContainer = styled.div<ComponentProps>`
 
 export const Card = styled.div<ComponentProps>`
     width: 350px;
-    height: 325px;
+    height: 340px;
     background-color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
     color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
     border-radius: 10px;
@@ -98,5 +98,17 @@ export const Card = styled.div<ComponentProps>`
         flex-direction: column;
         align-items: flex-start;
         gap: .5rem;
+    }
+
+    .iconsSection{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: .5rem;
+
+        .icon{
+            cursor: pointer;
+        }
     }
 `

@@ -7,6 +7,7 @@ type ProviderProps = {
 
 type Cars = {
     cars:Array<Car>
+    deleteById:(id:number)=>void
 }
 
 export const CarsContext = createContext({} as Cars)
@@ -35,10 +36,14 @@ export default function CarsProvider({children}:ProviderProps){
         getData()
     },[])
 
-
+    const deleteById = (id:number) => {
+        const newCars = cars.filter(car=>car.id!==id)
+        setCars(newCars)
+        localStorage.setItem('cars',JSON.stringify(newCars))
+    }
 
     return(
-        <CarsContext.Provider value={{cars}}>
+        <CarsContext.Provider value={{cars,deleteById}}>
             {children}
         </CarsContext.Provider>
     )

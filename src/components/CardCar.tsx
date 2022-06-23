@@ -2,6 +2,8 @@ import { useContext, useState } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import { Card } from "../styles/components"
 import { Car } from "../types/globalTypes"
+import {AiFillDelete,AiFillEdit} from 'react-icons/ai'
+import { CarsContext } from "../context/CarsContext"
 
 type CardProps = {
   car:Car
@@ -11,14 +13,20 @@ const DEFAULT_IMAGE = "https://cdn.discordapp.com/attachments/469630958811742212
 
 export default function CardCar({car}:CardProps) {
   const {isDark} = useContext(ThemeContext)
-  const [img,setImg] = useState(car.path_img)
+  const {deleteById} = useContext(CarsContext)
 
+  const [img,setImg] = useState(car.path_img)
   const onError = () => setImg(DEFAULT_IMAGE);
+  
 
   return (
     <Card isDark={isDark}>
       <img src={img ? img : DEFAULT_IMAGE} onError={onError}/>
       <div className="cardInfo">
+        <p className="iconsSection">
+            <AiFillDelete size={20} className="icon" color="var(--red)" onClick={()=>deleteById(car.id)}/>
+            <AiFillEdit size={20} className="icon"/>
+        </p>
         <header className="header">
           <h1>{car.ano_modelo}/{car.ano_fabricacao}</h1>
           <p>{car.placa}</p>
