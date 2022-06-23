@@ -19,11 +19,29 @@ export default function CardCar({car}:CardProps) {
     <Card isDark={isDark}>
       <img src={img ? img : DEFAULT_IMAGE} onError={onError}/>
       <div className="cardInfo">
-        <header>
-          <h1>{car.ano_modelo} - {car.ano_fabricacao}</h1>
+        <header className="header">
+          <h1>{car.ano_modelo}/{car.ano_fabricacao}</h1>
+          <p>{car.placa}</p>
+          <p>{car.chassi}</p>
         </header>
-        <p>{car.chassi}</p>
-        <p>{car.cor}</p>
+        <div className="rowText">
+          <p className="columnSection">
+            <div>
+              Ano de fabricação: {car.ano_fabricacao}
+            </div>
+            <div>
+              Renavam: {car.renavam}
+            </div>
+          </p>
+          <p className="columnSection">
+            <div>
+              UF: {car.uf}
+            </div>
+            <div>
+              Cor: {car.cor}
+            </div>
+          </p>
+        </div>
       </div>
     </Card>
   )

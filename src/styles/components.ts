@@ -78,4 +78,25 @@ export const Card = styled.div<ComponentProps>`
         gap: .5rem;
         padding: 1rem;
     }
+
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .25rem;
+        margin-bottom: .5rem;
+    }
+
+    .rowText{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .columnSection{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+    }
 `

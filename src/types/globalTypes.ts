@@ -2,7 +2,7 @@ export type Car = {
     id: number;
     placa: string;
     chassi: string;
-    renovam: number;
+    renavam: number;
     ano_modelo: string;
     ano_fabricacao: string;
     cor: string;
