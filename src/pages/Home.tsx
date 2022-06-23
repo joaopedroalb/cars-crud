@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CardCar from '../components/CardCar';
+import { CarsContext } from '../context/CarsContext';
 import { CardContainer, HomeBG } from '../styles/homeStyle';
-import { Car } from '../types/globalTypes';
 
 export default function Home() {
-  const [cars,setCars] = useState<Array<Car>|null>(null)
-  useEffect(()=>{
-    const getData = async () => {
-      const res = await fetch('cars.json')
-      const data = await res.json()
-      setCars(data.cars)
-    }
-    getData()
-  },[])
+  const {cars} = useContext(CarsContext)
 
   return (
     <HomeBG>
         <CardContainer>
           {
-            cars&&cars.map(car=>(
+            (cars.length>0)&&cars.map(car=>(
               <CardCar key={car.id} car={car}/>
             ))
           }

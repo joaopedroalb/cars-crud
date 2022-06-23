@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutPage from "./components/LayoutPage";
+import CarsProvider from "./context/CarsContext";
 import ThemeProvider from "./context/ThemeContext";
 import CreateCar from "./pages/CreateCar";
 import EditCar from "./pages/EditCar";
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <CarsProvider>
         <ThemeProvider>
           <LayoutPage>
             <Routes>
@@ -18,6 +20,7 @@ function App() {
             </Routes>
           </LayoutPage>
         </ThemeProvider>
+        </CarsProvider>
       </BrowserRouter>
     </>
   );
