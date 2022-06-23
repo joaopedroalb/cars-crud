@@ -1,0 +1,48 @@
+{
+    "cars":[
+        {
+            "id":1,
+            "placa":"ABC-1234",
+            "chassi":"9BZUJF9X1GKJ98888",
+            "renavam":92678412,
+            "ano_modelo":"HB20 2018",
+            "ano_fabricacao":"2018",
+            "cor":"Preto",
+            "uf":"SP",
+            "path_img":"https://cdn.discordapp.com/attachments/469630958811742212/989359962025254972/unknown.png"
+        },
+        {
+            "id":2,
+            "placa":"CDE-3214",
+            "chassi":"6DZUDX9Y1GKJ91812",
+            "renavam":2308947,
+            "ano_modelo":"Gol 2017",
+            "ano_fabricacao":"2018",
+            "cor":"Vermelho",
+            "uf":"CE",
+            "path_img":""
+        },
+        {
+            "id":3,
+            "placa":"HHV-2221",
+            "chassi":"2ZZZLE9Y1LKJ12362",
+            "renavam":9237846,
+            "ano_modelo":"Palio Attractive 2020",
+            "ano_fabricacao":"2022",
+            "cor":"Azul",
+            "uf":"RJ",
+            "path_img":"https://cdn.discordapp.com/attachments/469630958811742212/989360185376124949/unknown.png"
+        },
+        {
+            "id":4,
+            "placa":"HBC-1001",
+            "chassi":"9TFEZLEVYZ1KJ12582",
+            "renavam":89347737,
+            "ano_modelo":"Siena 2010",
+            "ano_fabricacao":"2010",
+            "cor":"Vermelho",
+            "uf":"CE",
+            "path_img":"https://cdn.discordapp.com/attachments/469630958811742212/989360794103865394/unknown.png"
+        }
+    ]
+}
