@@ -180,3 +180,14 @@ export const RowCenter = styled.div`
         border-radius: 6px;
     }
 `
+
+export const Button = styled.button<ComponentProps>`
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--orange);
+    color: var(--white);
+
+    &:disabled{
+        opacity: .65;
+    }
+`

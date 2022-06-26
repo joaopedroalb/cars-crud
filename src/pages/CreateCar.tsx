@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import InputForms from '../components/Forms/InputForms'
+import { CarsContext } from '../context/CarsContext'
+import { ThemeContext } from '../context/ThemeContext'
 import useForm from '../hooks/useForm'
-import { FormContainer, RowCenter, RowContent } from '../styles/components'
-import { Car } from '../types/globalTypes'
+import { Button, FormContainer, RowCenter, RowContent } from '../styles/components'
+import { useNavigate } from 'react-router-dom'
 
 const DEFAULT_IMAGE = "https://cdn.discordapp.com/attachments/469630958811742212/989356191987671040/unknown.png"
 
@@ -21,8 +23,45 @@ export default function CreateCar() {
   const [img,setImg] = useState(DEFAULT_IMAGE)
   const onError = () => setImg(DEFAULT_IMAGE);
 
-  const ImageChange = () =>{
+  const {isDark} = useContext(ThemeContext)
+  const {addCar} = useContext(CarsContext)
+
+  const [loading,setLoading] = useState(false)
+
+  const navigate = useNavigate();
+
+  const imageChange = () =>{
     setImg(pathImg.value)
+  }
+
+  const validateData = () =>{
+    if(modelo.value && anoModelo.value && placa.value && chassi.value && renavam.value && anoFabricacao.value && cor.value && uf.value)
+      return true
+    
+    return false
+  }
+
+  const submitForm = (event:any) =>{
+    event.preventDefault()
+    setLoading(true)
+
+    if(validateData()){
+      addCar(
+        modelo.value,
+        anoModelo.value,
+        placa.value,
+        chassi.value,
+        parseInt(renavam.value),
+        anoFabricacao.value,
+        cor.value,
+        uf.value,
+        img
+      )
+      navigate('/')
+
+    }
+
+    setLoading(false)
   }
 
   return (
@@ -30,7 +69,7 @@ export default function CreateCar() {
       <RowCenter>
         <img src={img ? img : DEFAULT_IMAGE} onError={onError} className="notSelected imgCreate"/>
       </RowCenter>
-      <FormContainer>
+      <FormContainer onSubmit={submitForm}>
         <RowContent>
           <InputForms
               name='model'
@@ -95,7 +134,7 @@ export default function CreateCar() {
               name='image'
               label='Image Url'
               value={pathImg.value}
-              onBlur={ImageChange}
+              onBlur={imageChange}
               onChange={pathImg.onChange}
               type='text'
               error={pathImg.error}
@@ -110,7 +149,7 @@ export default function CreateCar() {
               onChange={placa.onChange}
               type='text'
               error={placa.error}
-              placeholder='HHH-1234'
+              placeholder='HHH1234'
               width='15%'
           />
 
@@ -138,7 +177,7 @@ export default function CreateCar() {
 
         </RowContent>
         <RowCenter>
-          <button>Adicionar</button>
+          <Button isDark={isDark} disabled={(loading||!validateData())}>Adicionar</Button>
         </RowCenter>
       </FormContainer>
     </>
