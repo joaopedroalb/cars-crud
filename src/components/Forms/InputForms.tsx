@@ -5,7 +5,8 @@ type InputProps = {
   name: string
   label: string
   value: any
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
   type?: string
   error?: string|null
   placeholder?: string
@@ -15,7 +16,7 @@ type InputProps = {
   width?:string
 }
 
-export default function InputForms({name,label,value,onChange,type,error,placeholder,max,min,width}:InputProps) {
+export default function InputForms({name,label,value,onChange,type,error,placeholder,max,min,width,onBlur}:InputProps) {
   return (
     <InputContainer width={width ? width:'50%'}>
         <label htmlFor={name} className='label'>
@@ -25,6 +26,7 @@ export default function InputForms({name,label,value,onChange,type,error,placeho
               onChange={onChange} value={value} 
               className='input' placeholder={placeholder}
               min={min} max={max}
+              onBlur={onBlur}
         />
         {error&&<p className='error'>{error}</p>}
     </InputContainer>

@@ -5,18 +5,21 @@ const useForm = (type?:any) =>{
     const [error,setError] = useState<string|null>(null)
     
     const types:any = {
-        email:{
-            regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: 'Preencha um email válido'
+        placa:{
+            regex: /^[a-zA-Z]{3}[0-9][A-Za-z0-9][0-9]{2}$/,
+            message: 'Preencha uma placa válida'
         },
         year:{
             regex: /^(19|20)\d{2}$/,
             message:'Preencha um ano válido'
+        },
+        renavam:{
+            regex:/^[0-9]+$/,
+            message:'Preencha um revanam válido'
         }
     }
 
     function validate(value:any){
-        console.log(!type)
         if(!type) return true 
 
         if(value.length === 0){
