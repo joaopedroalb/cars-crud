@@ -28,7 +28,7 @@ export default function CardCar({car}:CardProps) {
             <AiFillEdit size={20} className="icon"/>
         </p>
         <header className="header">
-          <h1>{car.ano_modelo}/{car.ano_fabricacao}</h1>
+          <h1>{car.modelo} {car.modelo}/{car.ano_fabricacao}</h1>
           <p>{car.placa}</p>
           <p>{car.chassi}</p>
         </header>

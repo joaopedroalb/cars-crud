@@ -5,6 +5,10 @@ type ComponentProps = {
     isDark:boolean
 }
 
+type InputProps = {
+    width:string
+}
+
 export const NavbarContainer = styled.div<ComponentProps>`
     min-height: 100vh;
     width: 75px;
@@ -111,4 +115,48 @@ export const Card = styled.div<ComponentProps>`
             cursor: pointer;
         }
     }
+`
+
+export const InputContainer = styled.div<InputProps>`
+    
+    width: ${props => props.width};
+
+    .input{
+        width: 100%;
+        border: 1px solid var(--white);
+        display: block;
+        font-size: 1rem;
+        padding: .8rem;
+        border-radius: .4rem;
+        background: #ddd;
+
+        transition: .1s;
+    }
+
+    .input:hover, .input:focus{
+        outline: none;
+        border-color: var(--orange);
+        background:#fff;
+        box-shadow: 0 0 0 3px #fea;
+    }
+
+    .label{
+        display: block;
+        font-size: 1rem;
+        line-height: 1;
+        padding-bottom: .5rem;
+    }
+
+    .error{
+        color: var(--red);
+        font-size: 0.875rem;
+        margin-top: .25rem;
+    }
+`
+
+export const RowContent = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
 `
