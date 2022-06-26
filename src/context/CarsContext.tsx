@@ -8,7 +8,8 @@ type ProviderProps = {
 type Cars = {
     cars:Array<Car>
     deleteById:(id:number)=>void
-    addCar:(modelo:string,anoModelo:string,placa:string,chassi:string,renavam:number,anoFabricacao:string,cor:string,uf:string,pathImg:string)=>void
+    addCar:(car:Car)=>void
+    getNewId:()=>number
 }
 
 export const CarsContext = createContext({} as Cars)
@@ -43,29 +44,18 @@ export default function CarsProvider({children}:ProviderProps){
         localStorage.setItem('cars',JSON.stringify(newCars))
     }
 
-    function addCar(modelo:string,anoModelo:string,placa:string,chassi:string,renavam:number,anoFabricacao:string,cor:string,uf:string,pathImg:string){
-         console.log('entrou')               
+    const addCar = (car:Car)=>{            
+        setCars([...cars,car])
+        localStorage.setItem('cars',JSON.stringify([...cars,car]))
+    }
+
+    const getNewId = ():number =>{
         const id = cars.sort((acc,cur)=>{ return acc.id-cur.id})[cars.length-1].id+1
-
-        const newCar:Car = {
-            id:id,
-            modelo,
-            ano_modelo:anoModelo,
-            placa,
-            chassi,
-            renavam,
-            ano_fabricacao:anoFabricacao,
-            cor,
-            uf,
-            path_img:pathImg
-        }
-
-        setCars([...cars,newCar])
-        localStorage.setItem('cars',JSON.stringify([...cars,newCar]))
+        return id
     }
 
     return(
-        <CarsContext.Provider value={{cars,deleteById,addCar}}>
+        <CarsContext.Provider value={{cars,deleteById,addCar,getNewId}}>
             {children}
         </CarsContext.Provider>
     )

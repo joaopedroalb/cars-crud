@@ -24,7 +24,7 @@ export default function CreateCar() {
   const onError = () => setImg(DEFAULT_IMAGE);
 
   const {isDark} = useContext(ThemeContext)
-  const {addCar} = useContext(CarsContext)
+  const {addCar,getNewId} = useContext(CarsContext)
 
   const [loading,setLoading] = useState(false)
 
@@ -46,16 +46,20 @@ export default function CreateCar() {
     setLoading(true)
 
     if(validateData()){
+      
       addCar(
-        modelo.value,
-        anoModelo.value,
-        placa.value,
-        chassi.value,
-        parseInt(renavam.value),
-        anoFabricacao.value,
-        cor.value,
-        uf.value,
-        img
+        {
+          id:getNewId(),
+          modelo:modelo.value,
+          ano_modelo:anoModelo.value,
+          placa:placa.value,
+          chassi:chassi.value,
+          renavam:parseInt(renavam.value),
+          ano_fabricacao:anoFabricacao.value,
+          cor:cor.value,
+          uf:uf.value,
+          path_img:img
+        }
       )
       navigate('/')
 
@@ -79,7 +83,7 @@ export default function CreateCar() {
               type='text'
               error={modelo.error}
               placeholder='Civic'
-              width='50%'
+              width='45%'
             />
 
             <InputForms
@@ -90,7 +94,7 @@ export default function CreateCar() {
               type='number'
               error={anoModelo.error}
               placeholder='2012'
-              width='25%'
+              width='27.5%'
             />
 
             <InputForms
@@ -101,7 +105,7 @@ export default function CreateCar() {
               type='text'
               error={anoFabricacao.error}
               placeholder='2012'
-              width='25%'
+              width='27.5%'
             />
         </RowContent>
 
@@ -114,7 +118,7 @@ export default function CreateCar() {
               type='text'
               error={chassi.error}
               placeholder='HE2IJX24060831'
-              width='50%'
+              width='45%'
             />
 
             <InputForms
@@ -125,7 +129,7 @@ export default function CreateCar() {
               type='number'
               error={renavam.error}
               placeholder='92364923674'
-              width='50%'
+              width='55%'
             />
         </RowContent>
 
@@ -139,7 +143,7 @@ export default function CreateCar() {
               type='text'
               error={pathImg.error}
               placeholder='https://www.google.com/img/logo_brands.png'
-              width='50%'
+              width='45%'
             />
 
           <InputForms
@@ -150,7 +154,7 @@ export default function CreateCar() {
               type='text'
               error={placa.error}
               placeholder='HHH1234'
-              width='15%'
+              width='20%'
           />
 
           <InputForms

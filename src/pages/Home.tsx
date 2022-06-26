@@ -10,7 +10,7 @@ export default function Home() {
     <HomeBG>
         <CardContainer>
           {
-            (cars.length>0)&&cars.map(car=>(
+            (cars&&cars.length>0)&&cars.map(car=>(
               <CardCar key={car.id} car={car}/>
             ))
           }
