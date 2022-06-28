@@ -7,6 +7,7 @@ type ComponentProps = {
 
 type InputProps = {
     width:string
+    minWidth?:string
 }
 
 export const NavbarContainer = styled.div<ComponentProps>`
@@ -120,6 +121,7 @@ export const Card = styled.div<ComponentProps>`
 export const InputContainer = styled.div<InputProps>`
     
     width: ${props => props.width};
+    min-width: ${props => props.minWidth ? props.minWidth : "0px"};
 
     .input{
         width: 100%;
@@ -209,10 +211,74 @@ export const ModalBg = styled.div`
 
 export const EditBG = styled.div`
     width: 80%;
+    max-height: 100vh;
+    overflow: auto;
+    margin: 2rem 0;
     background-color: var(--white);
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    padding: .5rem 1rem;
+
+    @media screen and (max-width: 1295px){
+        padding: 0;
+    }
+
+    form{
+        display: flex;
+        flex:1;
+        flex-direction: column;
+        border-radius: 10px;
+        flex-wrap: wrap;
+
+    }
+
+
+    .row{
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 1rem;
+        justify-content: center;
+
+        @media screen and (max-width: 1295px){
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 
     img{
-        max-width: 100%;
+        max-width: 90%;
+        width: 450px;
+        height: 300px;
+        border-radius: 6px;
+
+        @media screen and (max-width: 1295px){
+           width: 100%;
+            max-width: 100%;
+        }
+
+        @media screen and (max-width:754px){
+            height: calc(30vw + 10px);
+        }
     }
+
+    .rightSide{
+        max-width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        width: 75%;
+        flex: 1;
+        justify-content:flex-start;
+        align-items: center;
+
+        @media screen and (max-width: 1295px){
+            align-items: flex-end;
+        }
+
+    }
+
+    
 `

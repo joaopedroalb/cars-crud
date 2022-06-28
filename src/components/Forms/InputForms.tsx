@@ -14,11 +14,12 @@ type InputProps = {
   max?: number
 
   width?:string
+  minWidth?:string
 }
 
-export default function InputForms({name,label,value,onChange,type,error,placeholder,max,min,width,onBlur}:InputProps) {
+export default function InputForms({name,label,value,onChange,type,error,placeholder,max,min,width,onBlur,minWidth}:InputProps) {
   return (
-    <InputContainer width={width ? width:'50%'}>
+    <InputContainer width={width ? width:'50%'} minWidth={minWidth}>
         <label htmlFor={name} className='label'>
             {label}
         </label>
