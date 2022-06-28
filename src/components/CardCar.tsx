@@ -4,6 +4,8 @@ import { Card } from "../styles/components"
 import { Car } from "../types/globalTypes"
 import {AiFillDelete,AiFillEdit} from 'react-icons/ai'
 import { CarsContext } from "../context/CarsContext"
+import ModalEdit from "./ModalEdit"
+import EditForm from "./EditForm"
 
 type CardProps = {
   car:Car
@@ -17,6 +19,9 @@ export default function CardCar({car}:CardProps) {
 
   const [img,setImg] = useState(car.path_img)
   const onError = () => setImg(DEFAULT_IMAGE);
+
+  const [activeModal,setActiveModal] = useState(false)
+              
   
 
   return (
@@ -25,10 +30,10 @@ export default function CardCar({car}:CardProps) {
       <div className="cardInfo">
         <p className="iconsSection">
             <AiFillDelete size={20} className="icon" color="var(--red)" onClick={()=>deleteById(car.id)}/>
-            <AiFillEdit size={20} className="icon"/>
+            <AiFillEdit size={20} className="icon" onClick={()=>{setActiveModal(true)}}/>
         </p>
         <header className="header">
-          <h1>{car.modelo} {car.ano_modelo}/{car.ano_fabricacao}</h1>
+          <h1>{car.modelo}&nbsp;{car.ano_modelo}/{car.ano_fabricacao}</h1>
           <p>{car.placa}</p>
           <p>{car.chassi}</p>
         </header>
@@ -51,6 +56,11 @@ export default function CardCar({car}:CardProps) {
           </p>
         </div>
       </div>
+      <ModalEdit  active={activeModal}
+                  onClose={()=>{setActiveModal(false)}}
+      >
+        <EditForm carSelected={car}  onClose={()=>{setActiveModal(false)}} />
+      </ModalEdit>
     </Card>
   )
 }

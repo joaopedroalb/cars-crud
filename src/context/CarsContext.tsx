@@ -10,6 +10,7 @@ type Cars = {
     deleteById:(id:number)=>void
     addCar:(car:Car)=>void
     getNewId:()=>number
+    editCar:(car:Car)=>void
 }
 
 export const CarsContext = createContext({} as Cars)
@@ -54,8 +55,18 @@ export default function CarsProvider({children}:ProviderProps){
         return id
     }
 
+    const editCar = (car:Car)=>{
+        const newCars = cars.map(c=>{
+            if(c.id===car.id)
+                return car
+            return c
+        })
+        setCars(newCars)
+        localStorage.setItem('cars',JSON.stringify(newCars))
+    }
+
     return(
-        <CarsContext.Provider value={{cars,deleteById,addCar,getNewId}}>
+        <CarsContext.Provider value={{cars,deleteById,addCar,getNewId,editCar}}>
             {children}
         </CarsContext.Provider>
     )

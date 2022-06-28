@@ -181,7 +181,7 @@ export const RowCenter = styled.div`
     }
 `
 
-export const Button = styled.button<ComponentProps>`
+export const Button = styled.button`
     padding: 1rem;
     border-radius: 6px;
     background-color: var(--orange);
@@ -189,5 +189,30 @@ export const Button = styled.button<ComponentProps>`
 
     &:disabled{
         opacity: .65;
+    }
+`
+
+export const ModalBg = styled.div`
+    position: fixed; 
+    z-index: 3; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(119, 119, 119, 0.8);; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+export const EditBG = styled.div`
+    width: 80%;
+    background-color: var(--white);
+    padding: 1rem;
+
+    img{
+        max-width: 100%;
     }
 `

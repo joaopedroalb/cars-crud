@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import InputForms from '../components/Forms/InputForms'
 import { CarsContext } from '../context/CarsContext'
-import { ThemeContext } from '../context/ThemeContext'
 import useForm from '../hooks/useForm'
 import { Button, FormContainer, RowCenter, RowContent } from '../styles/components'
 import { useNavigate } from 'react-router-dom'
@@ -23,7 +22,6 @@ export default function CreateCar() {
   const [img,setImg] = useState(DEFAULT_IMAGE)
   const onError = () => setImg(DEFAULT_IMAGE);
 
-  const {isDark} = useContext(ThemeContext)
   const {addCar,getNewId} = useContext(CarsContext)
 
   const [loading,setLoading] = useState(false)
@@ -181,7 +179,7 @@ export default function CreateCar() {
 
         </RowContent>
         <RowCenter>
-          <Button isDark={isDark} disabled={(loading||!validateData())}>Adicionar</Button>
+          <Button disabled={(loading||!validateData())}>Adicionar</Button>
         </RowCenter>
       </FormContainer>
     </>
