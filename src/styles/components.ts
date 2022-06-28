@@ -11,7 +11,7 @@ type InputProps = {
 }
 
 export const NavbarContainer = styled.div<ComponentProps>`
-    min-height: 100vh;
+    min-height: 100%;
     width: 75px;
     max-width: 30%;
     padding: 1.5rem 1rem 2.5rem 1rem;
