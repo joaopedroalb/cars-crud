@@ -46,7 +46,7 @@ export const NavbarContainer = styled.div<ComponentProps>`
 
 export const LayoutPageBG = styled.div`
     width: 100%;
-    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
 
     display: flex;
 `
