@@ -38,6 +38,9 @@ export const NavbarContainer = styled.div<ComponentProps>`
         }
     }
 
+    @media (max-width: 844px) {
+        width: 50px;
+    }
 
 `
 
@@ -60,7 +63,8 @@ export const PageContainer = styled.div<ComponentProps>`
 
 export const Card = styled.div<ComponentProps>`
     width: 350px;
-    height: 340px;
+    max-width: 70%;
+    min-height: 340px;
     background-color: ${props => props.isDark ? "var(--white)" : "var(--black)"};
     color: ${props => props.isDark ? "var(--black)" : "var(--white)"};
     border-radius: 10px;
@@ -276,6 +280,9 @@ export const EditBG = styled.div`
 
         @media screen and (max-width: 1295px){
             align-items: flex-end;
+            row-gap: 1px;
+            column-gap: 6px;
+
         }
 
     }

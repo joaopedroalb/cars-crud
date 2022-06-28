@@ -17,5 +17,7 @@ export const CardContainer = styled.section`
 
     @media (max-width: 844px) {
         grid-template-columns: repeat(1,1fr);
+        place-content: center;
+        place-items: center;
     }
 `
